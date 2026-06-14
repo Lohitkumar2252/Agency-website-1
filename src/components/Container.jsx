@@ -24,18 +24,20 @@ const Container = (props) => {
   ];
 
   const handleSlideChange = (realIndex) => {
-    props.setNum((prev)=> prev = realIndex);
+    props.setNum((prev) => (prev = realIndex));
   };
 
   return (
     <div
-      className={`background w-screen h-screen ${props.banner[props.Num]} overflow-y-hidden`}
+      className={`background w-screen h-screen ${props.banner[props.Num]} overflow-y-hidden relative`}
     >
       <div className="container px-10 flex  pt-20 relative h-screen">
-        <div className="left  w-1/2 flex flex-col gap-6">
+        <div className="left  w-1/2 flex flex-col gap-6 overflow-x-hidden">
           <h2 className="text-[100px] uppercase font-black leading-22.5">
             built to{" "}
-            <span className={`${props.color[props.Num].heading} transition-colors duration-500 block`}>
+            <span
+              className={`${props.color[props.Num].heading} transition-colors duration-500 block`}
+            >
               move
             </span>{" "}
             you
@@ -80,12 +82,13 @@ const Container = (props) => {
           <Swiper
             modules={[Autoplay]}
             autoplay={{
-              delay:8000,
+              delay: 7000,
               disableOnInteraction: false,
             }}
             loop={true}
             spaceBetween={50}
             slidesPerView={1}
+            speed={900}
             onSlideChange={(e) => handleSlideChange(e.realIndex)}
           >
             {heroImgs.map((value) => {
@@ -101,7 +104,7 @@ const Container = (props) => {
             })}
           </Swiper>
         </div>
-        <Scroller color={props.color} Num={props.Num}/>
+        <Scroller color={props.color} Num={props.Num} />
       </div>
     </div>
   );
