@@ -11,8 +11,8 @@ const Home = (props) => {
 
   return (
     <div>
-      <Container Num={props.Num} setNum={props.setNum} color={props.color} banner={props.banner} />
-      <CollectionSection />
+      <Container Num={props.Num} setNum={props.setNum} color={props.color} banner={props.banner}  handleScroll={props.handleScroll}/>
+      <CollectionSection ref={props.ref}/>
       <AboutSection />
     </div>
   );

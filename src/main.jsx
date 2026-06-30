@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router";
 import Cart from "./pages/Cart.jsx";
 import CartContext from "./context/CartContext.jsx";
 
+
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
    <CartContext>

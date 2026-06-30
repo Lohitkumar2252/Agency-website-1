@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/autoplay";
+import { Link } from "react-router";
 
 const Container = (props) => {
+  
   const heroImgs = [
     {
       src: "/hero_red.png",
@@ -48,14 +50,16 @@ const Container = (props) => {
           </p>
 
           <div className="buttons flex gap-5">
-            <button
+            <button onClick={props.handleScroll}
               className={`${props.color[props.Num].btn} transition-colors duration-500 px-10 py-1.5 text-lg text-white font-semibold uppercase tracking-widest`}
             >
               Shop Now
             </button>
-            <button className="border px-10 py-1.5 text-lg text-gray-500 font-semibold tracking-widest uppercase">
-              our story
-            </button>
+            <Link to="/about">
+              <button className="border px-10 py-1.5 text-lg text-gray-500 font-semibold tracking-widest uppercase">
+                our story
+              </button>
+            </Link>
           </div>
           <div className="records_container flex items-center justify-start gap-10">
             <div className="records flex-col flex items-start">

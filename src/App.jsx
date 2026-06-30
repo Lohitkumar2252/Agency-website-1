@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Cart from "./pages/Cart";
+import About from "./pages/About";
 const App = () => {
   const [Num, setNum] = useState(0);
   const color = [
@@ -16,17 +17,23 @@ const App = () => {
     "bg-[linear-gradient(105deg,#0A0A0A_0%,#0A0A0A_30%,#3e2f07_30%,#241b04_65%,#3d2d07_65%,#271d04_80%,#171103_80%,#0A0A0A_90%,#0A0A0A_90%,#0A0A0A_100%)]",
     "bg-[linear-gradient(105deg,#0A0A0A_0%,#0A0A0A_30%,#02161e_30%,#01090d_65%,#02161e_65%,#01090d_80%,#02161e_80%,#0A0A0A_90%,#0A0A0A_90%,#0A0A0A_100%)]",
   ];
+  const targetRef = useRef(null);
+
+  const handleScroll = () => {
+    targetRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div>
-      <Navbar />
+      <Navbar handleScroll={handleScroll}/>
       <Routes>
         <Route
           path="/"
           element={
-            <Home Num={Num} setNum={setNum} color={color} banner={banner} />
+            <Home Num={Num} setNum={setNum} color={color} banner={banner} ref={targetRef} handleScroll={handleScroll}/>
           }
         />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </div>
