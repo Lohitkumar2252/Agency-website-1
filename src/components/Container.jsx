@@ -78,7 +78,7 @@ const Container = (props) => {
             </div>
           </div>
         </div>
-        <div className="right w-1/2">
+        <div className="right w-1/2 ">
           <Swiper
             modules={[Autoplay]}
             autoplay={{
@@ -89,6 +89,7 @@ const Container = (props) => {
             spaceBetween={50}
             slidesPerView={1}
             speed={900}
+            allowTouchMove={false}
             onSlideChange={(e) => handleSlideChange(e.realIndex)}
           >
             {heroImgs.map((value) => {

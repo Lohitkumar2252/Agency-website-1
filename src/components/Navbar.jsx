@@ -1,27 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
+import { useCart } from "../context/CartContext";
 
-const Navbar = (props) => {
-  const navLinks = []
+const Navbar = () => {
+  const {state: {cart}} = useCart()
+
+ 
+  
   return (
     <div className="border-b border-b-[#2e2e2e] w-full bg-[#0A0A0A] fixed top-0 z-10">
       <div className="flex justify-between px-6 h-15 items-center container">
         <div className="logo uppercase font-bold text-white text-[1.8rem]">
           <span className={`text-[#E5281A]`}>S</span>tride
         </div>
-        <ul className="flex gap-10  uppercase text-[#535353] tracking-wider">
-          {navLinks.map((value, i) => {
-            return (
-              <li key={i} className="hover:text-[#b9b9b9] hover:cursor-pointer">
-                {value}
-              </li>
-            );
-          })}
-        </ul>
-        <button
-          className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide`}
-        >
-          shop now
-        </button>
+        
+        <div className="nav-right flex items-center justify-center gap-5">
+          <button
+            className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer`}
+          >
+            shop now
+          </button>
+         <Link to="/cart">
+          <div className="cartIcon w-8 h-8 p-1 relative">
+            <img src="/cart_icon.svg" alt="cart" className="w-full" />
+            <div className="number absolute -bottom-1  -left-1 bg-[#E5281A] rounded-full w-5 h-5 grid place-items-center text-sm font-bold">{cart.length}</div>
+          </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

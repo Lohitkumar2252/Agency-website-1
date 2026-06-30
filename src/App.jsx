@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
-
-import Container from "./components/Container";
-import CollectionSection from "./components/CollectionSection";
-import AboutSection from "./components/AboutSection";
+import { Routes, Route } from "react-router";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Cart from "./pages/Cart";
 const App = () => {
   const [Num, setNum] = useState(0);
   const color = [
@@ -19,11 +18,17 @@ const App = () => {
   ];
   return (
     <div>
-      <Navbar Num={Num} color={color}/>
-      <Container Num={Num} setNum={setNum} color={color} banner={banner}/>
-      <CollectionSection/>
-      <AboutSection/>
-      <Footer/>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home Num={Num} setNum={setNum} color={color} banner={banner} />
+          }
+        />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+      <Footer />
     </div>
   );
 };
