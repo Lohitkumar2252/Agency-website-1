@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useCart } from "../context/CartContext";
+import { useLocation } from "react-router";
 
 const Navbar = (props) => {
   const {
     state: { cart },
   } = useCart();
 
-  
+  const location = useLocation();
+  const isCartPage = location.pathname === "/cart";
 
   return (
     <div className="border-b border-b-[#2e2e2e] w-full bg-[#0A0A0A] fixed top-0 z-10">
@@ -17,11 +19,23 @@ const Navbar = (props) => {
         </div>
 
         <div className="nav-right flex items-center justify-center gap-5">
-          <button onClick={props.handleScroll}
-            className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer`}
-          >
-            shop now
-          </button>
+          {isCartPage ? (
+            <Link to="/">
+              <button
+                className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer hidden sm:block`}
+              >
+                home
+              </button>
+            </Link>
+          ) : (
+            <button
+              onClick={props.handleScroll}
+              className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer hidden sm:block`}
+            >
+              shop now
+            </button>
+          )}
+
           <Link to="/cart">
             <div className="cartIcon w-8 h-8 p-1 relative">
               <img src="/cart_icon.svg" alt="cart" className="w-full" />

@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./Container";
+import HeroSection from "./HeroSection";
 import CollectionSection from "./CollectionSection";
 import AboutSection from "./AboutSection";
 
@@ -11,7 +11,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <Container Num={props.Num} setNum={props.setNum} color={props.color} banner={props.banner}  handleScroll={props.handleScroll}/>
+      <HeroSection Num={props.Num} setNum={props.setNum} color={props.color} banner={props.banner}  handleScroll={props.handleScroll}/>
       <CollectionSection ref={props.ref}/>
       <AboutSection />
     </div>

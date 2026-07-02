@@ -12,7 +12,7 @@ const Scroller = (props) => {
     "just do it",
   ];
   return (
-    <div className={`absolute bottom-0 w-full left-0 ${props.color[props.Num].btn} overflow-x-hidden transition-colors duration-500 `}>
+    <div className={` w-full ${props.color[props.Num].btn} overflow-x-hidden transition-colors duration-500`}>
       <Marquee autoFill={true} speed={150}>
         {scrollContent.map((value, i) => {
           return (

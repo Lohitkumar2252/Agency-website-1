@@ -27,7 +27,7 @@ const milestones = [
 
 export default function About() {
   return (
-    <div className="bg-[#0A0A0A] text-[#FAFAFA] min-h-screen font-['Barlow',sans-serif]">
+    <div className="bg-[#0A0A0A] text-[#FAFAFA] min-h-screen font-['Barlow',sans-serif] container">
       
       <section className="relative overflow-hidden px-6 md:px-12 py-20">
         <span
@@ -38,7 +38,7 @@ export default function About() {
           JUST DO IT
         </span>
 
-        <div className="relative z-10">
+        <div className="relative z-5">
           <h1
             className="font-black uppercase leading-[0.95] max-w-3xl mb-8"
             style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "clamp(48px,7vw,80px)" }}
@@ -58,8 +58,8 @@ export default function About() {
       </section>
 
     
-      <section className="px-1 md:px-1 pb-0">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[2px] mt-8">
+      <section className="px-2 md:px-1 pb-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5 mt-8">
           {values.map((v, i) => (
             <div
               key={v.num}
@@ -114,7 +114,7 @@ export default function About() {
           className="inline-block bg-[#E5281A] hover:opacity-85 transition-opacity text-white font-bold uppercase tracking-widest px-10 py-4"
           style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "15px", letterSpacing: "0.15em" }}
         >
-          Shop the Drop
+          Shop
         </Link>
       </section>
     </div>
