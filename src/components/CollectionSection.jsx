@@ -16,7 +16,7 @@ const CollectionSection = (props) => {
           <span className="text-[#FAFAFA]">top</span> picks
         </h2>
         <div className="card_container grid grid-cols-1 sm:grid-cols-3 gap-5 mt-15">
-          {products.map((value, i) => {
+          {products.filter(value => value.featured == true).map((value, i) => {
             return (
               <Card
                 key={value.id}
@@ -29,6 +29,7 @@ const CollectionSection = (props) => {
               />
             );
           })}
+          {console.log()}
         </div>
       </div>
     </section>

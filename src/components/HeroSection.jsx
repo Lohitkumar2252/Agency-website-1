@@ -56,13 +56,14 @@ const Container = (props) => {
               </p>
 
               <div className="buttons flex gap-5 z-5">
-                <button
-                  onClick={props.handleScroll}
-                  className={`${props.color[props.Num].btn} transition-colors duration-500 px-6 py-1.5 text-sm sm:text-base lg:text-lg xl:text-[1.5rem] lg:px-10 text-white font-semibold uppercase tracking-widest`}
-                >
-                  Shop Now
-                </button>
-                <Link to="/about" onClick={()=>console.log("clicked")}>
+                <Link to="/shop">
+                  <button
+                    className={`${props.color[props.Num].btn} transition-colors duration-500 px-6 py-1.5 text-sm sm:text-base lg:text-lg xl:text-[1.5rem] lg:px-10 text-white font-semibold uppercase tracking-widest`}
+                  >
+                    Shop Now
+                  </button>
+                </Link>
+                <Link to="/about" onClick={() => console.log("clicked")}>
                   <button className=" px-6 border py-1.5 text-sm sm:text-base lg:text-lg xl:text-[1.5rem] lg:px-10 text-gray-500 font-semibold tracking-widest uppercase">
                     our story
                   </button>

@@ -9,7 +9,7 @@ const Navbar = (props) => {
   } = useCart();
 
   const location = useLocation();
-  const isCartPage = location.pathname === "/cart";
+  const isHomePage = location.pathname === "/";
 
   return (
     <div className="border-b border-b-[#2e2e2e] w-full bg-[#0A0A0A] fixed top-0 z-10">
@@ -19,7 +19,15 @@ const Navbar = (props) => {
         </div>
 
         <div className="nav-right flex items-center justify-center gap-5">
-          {isCartPage ? (
+          {isHomePage ? (
+            <Link to="/shop">
+              <button
+                className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer hidden sm:block`}
+              >
+                shop now
+              </button>
+            </Link>
+          ) : (
             <Link to="/">
               <button
                 className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer hidden sm:block`}
@@ -27,13 +35,6 @@ const Navbar = (props) => {
                 home
               </button>
             </Link>
-          ) : (
-            <button
-              onClick={props.handleScroll}
-              className={`bg-[#E5281A] transition-colors duration-500 px-8 h-9 border-none outline-none text-white font-bold uppercase tracking-wide cursor-pointer hidden sm:block`}
-            >
-              shop now
-            </button>
           )}
 
           <Link to="/cart">

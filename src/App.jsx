@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
+import Shop from "./pages/Shop";
 const App = () => {
   const [Num, setNum] = useState(0);
   const color = [
@@ -34,6 +35,7 @@ const App = () => {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
       <Footer />
     </div>
