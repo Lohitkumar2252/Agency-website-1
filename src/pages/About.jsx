@@ -114,7 +114,7 @@ export default function About() {
           className="inline-block bg-[#E5281A] hover:opacity-85 transition-opacity text-white font-bold uppercase tracking-widest px-10 py-4"
           style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "15px", letterSpacing: "0.15em" }}
         >
-          Shop
+          Home
         </Link>
       </section>
     </div>
