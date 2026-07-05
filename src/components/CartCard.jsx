@@ -1,42 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 
-const CartCard = ({bgColor, img , category, price, name, id}) => {
-    const {dispatch} = useCart()
-    
-
+const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
+  const { dispatch } = useCart();
+  const totalPrice = price * qty;
   return (
-    <div
-      className={`${bgColor} w-full flex flex-col justify-between hover:scale-102 transition-transform duration-200`}
-    >
-      <div className="img py-8">
-        <img src={img} alt="shoe" className=" w-full h-full object-contain" />
+    <div className="p-2 sm:py-2 sm:px-4 bg-[#141414] border border-white/8 rounded-2xl flex items-center gap-3">
+      <div className={`left w-20 sm:w-25 lg:w-30 xl:w-40 ${bgColor}`}>
+        <img src={img} alt={name} className="w-full object-contain h-full" />
       </div>
-      <div
-        className="content bg-[#1A1A1A] p-3
-                   flex flex-col gap-1"
-      >
-        <p className="text-[#D01A10] uppercase tracking-widest text-sm">
-          {category}
-        </p>
-        <h3 className="text-[#FAFAFA] uppercase font-bold text-3xl tracking-wide">
-          {name}
-        </h3>
-        <p className="text-[#888888] tracking-wider">{price}</p>
+      <div className="right flex justify-between items-center w-full">
+        <div className="flex flex-col gap-2">
+          <p className="text-[#D01A10] uppercase tracking-widest text-xs">
+            {category}
+          </p>
+          <h3 className="text-[#FAFAFA] uppercase font-bold text-base lg:text-xl xl:text-2xl tracking-wide">
+            {name}
+          </h3>
+          <div className="qty flex gap-4">
+            <div
+              className="minus w-5 h-5 hover:bg-[#2c2c2c83] rounded-full"
+              onClick={() => {
+                dispatch({
+                  type: "DECREASE_QTY",
+                  payload: { id },
+                });
+              }}
+            >
+              <img
+                src="/minusIcon.svg"
+                alt="substract"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="">{qty}</div>
+            <div
+              onClick={() => {
+                dispatch({
+                  type: "INCREASE_QTY",
+                  payload: { id },
+                });
+              }}
+              className="plus w-5 h-5 hover:bg-[#2c2c2c83] rounded-full"
+            >
+              <img
+                src="plusIcon.svg"
+                alt="add"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+        <div className=" flex flex-col">
+          <button
+            onClick={() => {
+              dispatch({
+                type: "REMOVE_FROM_CART",
+                payload: id,
+              });
+            }}
+            className="p-2 rounded-full ml-auto hover:bg-[#2c2c2c83]"
+          >
+            <img src="/crossIcon.svg" alt="remove" className="w-5" />
+          </button>
+          <p className="text-[#c6c6c6] tracking-wider text-base xl:text-xl">
+            {`₹${totalPrice.toLocaleString()}`}
+          </p>
+        </div>
       </div>
-        <button
-          className=" text-lg  text-center w-full py-2 bg-[#E5281A] uppercase tracking-wider"
-          onClick={() => {
-            dispatch({
-              type: "REMOVE_FROM_CART",
-              payload: id,
-            });
-          }}
-        >
-          remove from cart
-        </button>
-     
-
     </div>
   );
 };

@@ -11,3 +11,14 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+@keyframes slideIn {
+  from {
+    right: -200px;
+  }
+}
+@keyframes timer {
+  to {
+    width: 100%;
+  }
+}

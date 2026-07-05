@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 
-const Card = ({ img, category, name, price, bgColor, id }) => {
+const Card = ({ img, category, name, price, bgColor, id, qty }) => {
   const {
     state: { cart },
     dispatch,
@@ -24,7 +24,7 @@ const Card = ({ img, category, name, price, bgColor, id }) => {
         <h3 className="text-[#FAFAFA] uppercase font-bold text-2xl lg:text-3xl tracking-wide">
           {name}
         </h3>
-        <p className="text-[#888888] tracking-wider">{price}</p>
+        <p className="text-[#888888] tracking-wider">{`₹${price.toLocaleString()}`}</p>
         {cart.some((p) => p.id === id) ? (
           <button
             className=" text-lg  text-center w-full py-2 bg-[#E5281A] uppercase tracking-wider"
@@ -43,7 +43,7 @@ const Card = ({ img, category, name, price, bgColor, id }) => {
             onClick={() => {
               dispatch({
                 type: "ADD_TO_CART",
-                payload: { id, img, category, name, price, bgColor },
+                payload: { id, img, category, name, price, bgColor, qty : 1 },
               });
             }}
           >

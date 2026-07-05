@@ -26,10 +26,11 @@ const CollectionSection = (props) => {
                 name={value.name}
                 price={value.price}
                 id={value.id}
+                qty={value.qty}
               />
             );
           })}
-          {console.log()}
+        
         </div>
       </div>
     </section>

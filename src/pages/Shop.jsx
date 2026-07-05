@@ -35,9 +35,9 @@ const Shop = () => {
       </div>
       <div className="products">
         <div className="filter p-4 gap-2 sm:gap-5 flex items-center">
-          {filterBtns.map((value) => {
+          {filterBtns.map((value, i) => {
             return (
-              <button
+              <button key={i}
                 onClick={() => handleClick(value)}
                 className={`${clicked == value && "border-[#E5281A] border"} outline-none px-4 sm:px-5 py-2 capitalize bg-[#161616] font-light text-xs xl:text-base`}
               >
