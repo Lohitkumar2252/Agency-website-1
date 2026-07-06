@@ -20,13 +20,32 @@ const CartContext = ({ children }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
-
-  const [state, dispatch] = useReducer(CartReducer, {
+  const defaultState = {
     products: [],
     cart: [],
     productsLoading: true,
     productsError: null,
-  });
+  };
+  const initCart = (defaultState) => {
+    try {
+      const saved = localStorage.getItem("local_saved_cart");
+      if (!saved) return defaultState;
+
+      const parsedCart = JSON.parse(saved);
+
+      return {
+        ...defaultState,
+        cart: Array.isArray(parsedCart) ? parsedCart : defaultState.cart,
+      };
+    } catch {
+      return defaultState;
+    }
+  };
+  const [state, dispatch] = useReducer(CartReducer, defaultState, initCart);
+
+  useEffect(() => {
+    localStorage.setItem("local_saved_cart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
   return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
 };

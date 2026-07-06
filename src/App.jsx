@@ -20,17 +20,15 @@ const App = () => {
   ];
   const targetRef = useRef(null);
 
-  const handleScroll = () => {
-    targetRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  
   return (
     <div>
-      <Navbar handleScroll={handleScroll}/>
+      <Navbar />
       <Routes>
         <Route
           path="/"
           element={
-            <Home Num={Num} setNum={setNum} color={color} banner={banner} ref={targetRef} handleScroll={handleScroll}/>
+            <Home Num={Num} setNum={setNum} color={color} banner={banner} />
           }
         />
         <Route path="/cart" element={<Cart />} />

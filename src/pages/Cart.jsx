@@ -8,13 +8,15 @@ import CartCard from "../components/CartCard";
 import PopUp from "../components/PopUp";
 
 const Cart = () => {
-  const [Visible, setVisible] = useState(false)
-  
+  const [Visible, setVisible] = useState(false);
+
   const {
     state: { cart },
     dispatch,
   } = useCart();
 
+
+  
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const calculateShipping = () => {
@@ -107,23 +109,21 @@ const Cart = () => {
                 ₹{total.toLocaleString()}
               </span>
             </div>
-            
+
             <button
               onClick={() => {
                 dispatch({
                   type: "CLEAR_CART",
                 });
-               setVisible(true);
+                setVisible(true);
               }}
               disabled={Visible}
               className={` w-full h-11.5 bg-[#D01A10] rounded-[10px] text-white text-sm font-medium tracking-wide uppercase`}
             >
-              {Visible ? "Processing...": "Checkout"}
+              {Visible ? "Processing..." : "Checkout"}
             </button>
-           
-           
           </div>
-          {Visible &&  <PopUp setVisible={setVisible}/>}
+          {Visible && <PopUp setVisible={setVisible} />}
         </div>
       </div>
     </div>
