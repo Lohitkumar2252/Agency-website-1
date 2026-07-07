@@ -41,7 +41,7 @@ const Navbar = (props) => {
             <div className="cartIcon w-8 h-8 p-1 relative">
               <img src="/cart_icon.svg" alt="cart" className="w-full" />
               <div className="number absolute -bottom-1  -left-1 bg-[#E5281A] rounded-full w-5 h-5 grid place-items-center text-sm font-bold">
-                {cart.length}
+                {cart.reduce((sum, i) => sum + i.qty, 0)}
               </div>
             </div>
           </Link>
