@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 
-const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
+const CartCard = ({ bgColor, img, category, price, name, id, qty }) => {
   const { dispatch } = useCart();
   const totalPrice = price * qty;
   return (
@@ -19,6 +19,7 @@ const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
           </h3>
           <div className="qty flex gap-4">
             <button
+              aria-label="Decrease quantity"
               className="minus w-5 h-5 hover:bg-[#2c2c2c83] rounded-full"
               onClick={() => {
                 dispatch({
@@ -41,6 +42,7 @@ const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
                   payload: { id },
                 });
               }}
+              aria-label="Increase quantity"
               className="plus w-5 h-5 hover:bg-[#2c2c2c83] rounded-full"
             >
               <img
@@ -59,6 +61,7 @@ const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
                 payload: id,
               });
             }}
+            aria-label="Remove from cart"
             className="p-2 rounded-full ml-auto hover:bg-[#2c2c2c83]"
           >
             <img src="/crossIcon.svg" alt="remove" className="w-5" />
