@@ -4,7 +4,7 @@
     "img": "/hero_red.png",
     "category": "running",
     "name": "air phantom",
-    "price": "₹12,995",
+    "price": 12995,
     "bgColor": "bg-[#1A0A08]",
     "featured" : true
   },
@@ -13,7 +13,7 @@
     "img": "/hero_blue.png",
     "category": "training",
     "name": "react flux 4",
-    "price": "₹9,495",
+    "price": 9495,
     "bgColor": "bg-[#0A0F1A]",
     "featured" : true
   },
@@ -22,7 +22,7 @@
     "img": "/hero_yellow.png",
     "category": "lifestyle",
     "name": "court vision low",
-    "price": "₹7,295",
+    "price": 7295,
     "bgColor": "bg-[#19180c]",
     "featured" : true
   },
@@ -31,7 +31,7 @@
     "img": "/hero_blue.png",
     "category": "training",
     "name": "react flux 4",
-    "price": "₹9,495",
+    "price": 9495,
     "bgColor": "bg-[#0A0F1A]",
     "featured" : false
   },
@@ -40,7 +40,7 @@
     "img": "/hero_yellow.png",
     "category": "lifestyle",
     "name": "court vision low",
-    "price": "₹7,295",
+    "price": 7295,
     "bgColor": "bg-[#19180c]",
     "featured" : false
   },
@@ -49,7 +49,7 @@
     "img": "/hero_blue.png",
     "category": "training",
     "name": "react flux 4",
-    "price": "₹9,495",
+    "price": 9495,
     "bgColor": "bg-[#0A0F1A]",
     "featured" : false
   },
@@ -58,7 +58,7 @@
     "img": "/hero_yellow.png",
     "category": "lifestyle",
     "name": "court vision low",
-    "price": "₹7,295",
+    "price": 7295,
     "bgColor": "bg-[#19180c]",
     "featured" : false
   },
@@ -67,7 +67,7 @@
     "img": "/hero_blue.png",
     "category": "training",
     "name": "react flux 4",
-    "price": "₹9,495",
+    "price": 9495,
     "bgColor": "bg-[#0A0F1A]",
     "featured" : false
   },
@@ -76,7 +76,7 @@
     "img": "/hero_yellow.png",
     "category": "lifestyle",
     "name": "court vision low",
-    "price": "₹7,295",
+    "price": 7295,
     "bgColor": "bg-[#19180c]",
     "featured" : false
   }

@@ -8,11 +8,8 @@ const CartContext = ({ children }) => {
       const res = await fetch("/products.json");
       if (!res.ok) throw new Error(`Failed to load products (${res.status})`);
       const data = await res.json();
-      const normalizedData = data.map((p) => ({
-        ...p,
-        price: Number(String(p.price).replace(/[^0-9.]/g, "")),
-      }));
-      dispatch({ type: "FETCH_PRODUCTS_SUCCESS", payload: normalizedData });
+      
+      dispatch({ type: "FETCH_PRODUCTS_SUCCESS", payload: data });
     } catch (err) {
       dispatch({ type: "FETCH_PRODUCTS_ERROR", payload: err.message });
     }

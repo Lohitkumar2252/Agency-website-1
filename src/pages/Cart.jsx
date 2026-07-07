@@ -84,7 +84,7 @@ const Cart = () => {
 
             <div className="flex justify-between mb-2.5 text-sm">
               <span className="text-gray-400">
-                Subtotal ({cart.length} items)
+                Subtotal ( {cart.reduce((sum, i) => sum + i.qty, 0)} items)
               </span>
               <span className="text-[#969696]">
                 ₹{subtotal.toLocaleString()}

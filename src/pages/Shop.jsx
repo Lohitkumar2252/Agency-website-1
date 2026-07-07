@@ -17,7 +17,6 @@ const Shop = () => {
 
   const handleClick = (value) => {
     setclicked(value);
-    handleFilteredProducts(value);
   };
   return (
     <div className="container">

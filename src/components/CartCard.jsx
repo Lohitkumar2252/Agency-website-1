@@ -18,7 +18,7 @@ const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
             {name}
           </h3>
           <div className="qty flex gap-4">
-            <div
+            <button
               className="minus w-5 h-5 hover:bg-[#2c2c2c83] rounded-full"
               onClick={() => {
                 dispatch({
@@ -32,9 +32,9 @@ const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
                 alt="substract"
                 className="w-full h-full object-contain"
               />
-            </div>
+            </button>
             <div className="">{qty}</div>
-            <div
+            <button
               onClick={() => {
                 dispatch({
                   type: "INCREASE_QTY",
@@ -48,7 +48,7 @@ const CartCard = ({  bgColor, img, category, price, name, id, qty }) => {
                 alt="add"
                 className="w-full h-full object-contain"
               />
-            </div>
+            </button>
           </div>
         </div>
         <div className=" flex flex-col">
